@@ -46,8 +46,8 @@ class Server:
         '''Returns a hypermedia of the paginated data'''
         data = self.get_page(page, page_size)
         start_index, end_index = index_range(page, page_size)
-        next_page = page + 1 if end_index < len(data) - 1 else None
-        prev_page = page - 1 if start_index > 1 else None
+        next_page = page + 1 if end_index < len(data) else None
+        prev_page = page - 1 if page > 1 else None
         total_pages = math.floor(19419 / page_size)
         return {
             'page_size': page_size,
@@ -57,4 +57,3 @@ class Server:
             'prev_page': prev_page,
             'total_pages': total_pages
         }
-
