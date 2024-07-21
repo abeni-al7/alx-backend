@@ -42,7 +42,7 @@ class Server:
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
         '''Returns an indexed hyper data'''
         assert(type(index) == int and type(page_size) == int)
-        assert(0 <= index < len(self.indexed_dataset()) or index is None) 
+        assert(0 <= index < len(self.indexed_dataset()) or index is None)
         next_index = index + page_size
         data = []
         for i in range(index, next_index):
