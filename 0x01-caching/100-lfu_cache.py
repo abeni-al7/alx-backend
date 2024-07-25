@@ -19,7 +19,8 @@ class LFUCache(BaseCaching):
             return
         if key not in self.cache_data:
             if len(self.data) >= BaseCaching.MAX_ITEMS:
-                discard = sorted(self.frequency.items(), key=lambda x: x[1])[0][0]
+                discard = sorted(
+                    self.frequency.items(), key=lambda x: x[1])[0][0]
                 del self.cache_data[discard]
                 del self.frequency[discard]
                 print(f"DISCARD: {discard}")
