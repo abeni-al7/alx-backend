@@ -1,0 +1,1 @@
+Flask Internationalization and Localization practice
