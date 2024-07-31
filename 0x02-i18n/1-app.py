@@ -5,7 +5,6 @@ from flask_babel import Babel, Locale
 from pytz import timezone
 
 app = Flask(__name__)
-babel = Babel(app)
 
 
 class Config:
@@ -16,6 +15,7 @@ class Config:
 
 
 app.config.from_object = Config
+babel = Babel(app)
 
 
 @app.route("/")
