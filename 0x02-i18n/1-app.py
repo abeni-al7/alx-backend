@@ -4,16 +4,15 @@ from flask import Flask, render_template
 from flask_babel import Babel, Locale
 from pytz import timezone
 
-app = Flask(__name__)
-
 
 class Config:
     """A configuration class for babel"""
     LANGUAGES = ["en", "fr"]
-    BABEL_DEFAULT_LOCALE = Locale("en")
-    BABEL_DEFAULT_TIMEZONE = timezone("utc")
+    BABEL_DEFAULT_LOCALE = "en"
+    BABEL_DEFAULT_TIMEZONE = "UTC"
 
 
+app = Flask(__name__)
 app.config.from_object = Config
 babel = Babel(app)
 
