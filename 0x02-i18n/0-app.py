@@ -9,7 +9,7 @@ app.url_map.strict_slashes = False
 @app.route("/")
 def index() -> str:
     """A simple route"""
-    return render_template("index.html") or "Hello world"
+    return render_template("index.html")
 
 
 if __name__ == "__name__":
