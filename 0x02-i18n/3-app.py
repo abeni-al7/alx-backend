@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """A simple babel setup"""
-from flask_babel import Babel
+from flask_babel import Babel, _
 from flask import Flask, render_template, request
 
 
@@ -26,7 +26,7 @@ def get_locale() -> str:
 @app.route('/')
 def get_index() -> str:
     """Returns a simple route"""
-    return render_template('2-index.html')
+    return render_template('3-index.html')
 
 
 if __name__ == '__main__':
