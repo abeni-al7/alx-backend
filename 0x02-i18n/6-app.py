@@ -2,7 +2,6 @@
 """A simple babel setup"""
 from flask_babel import Babel, _
 from flask import Flask, g, render_template, request
-from typing import Dict, Union
 
 users = {
     1: {"name": "Balou", "locale": "fr", "timezone": "Europe/Paris"},
@@ -43,6 +42,10 @@ def before_request() -> None:
 def get_locale() -> str:
     """Gets the best locale from request"""
     locale = request.args.get("locale")
+    if locale and locale in Config.LANGUAGES:
+        return locale
+    user = g.user
+    locale = user["locale"]
     if locale and locale in Config.LANGUAGES:
         return locale
     return request.accept_languages.best_match(app.config["LANGUAGES"])
