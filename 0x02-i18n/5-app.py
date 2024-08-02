@@ -2,6 +2,7 @@
 """A simple babel setup"""
 from flask_babel import Babel, _
 from flask import Flask, g, render_template, request
+from typing import Dict, Union
 
 users = {
     1: {"name": "Balou", "locale": "fr", "timezone": "Europe/Paris"},
@@ -50,8 +51,7 @@ def get_user() -> dict | None:
 @app.before_request
 def before_request() -> None:
     """Gets a user and sets it to flask"""
-    user = get_user()
-    g.user = user
+    setattr(g, 'user', get_user())
 
 
 if __name__ == '__main__':
